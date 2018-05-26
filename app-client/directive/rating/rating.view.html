@@ -1,0 +1,7 @@
+<div id="reviewStars-input" ng-mouseenter="cls='unstar'" ng-mouseleave="cls=''" ng-init="cls=''" class="{{cls}}">
+    <span class="{{ book.rating >= 5 ? 'star' : ''}}" ng-click="tablevm.setRating(book, 5)"></span>
+    <span class="{{ book.rating >= 4 ? 'star' : ''}}" ng-click="tablevm.setRating(book, 4)"></span>
+    <span class="{{ book.rating >= 3 ? 'star' : ''}}" ng-click="tablevm.setRating(book, 3)"></span>
+    <span class="{{ book.rating >= 2 ? 'star' : ''}}" ng-click="tablevm.setRating(book, 2)"></span>
+    <span class="{{ book.rating >= 1 ? 'star' : ''}}" ng-click="tablevm.setRating(book, 1)"></span>
+</div>

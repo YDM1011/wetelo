@@ -1,0 +1,37 @@
+<div class="fluid table" ng-controller="tablevm">
+    <div class="container">
+        <div class="table-headline">
+            <h1 class="table-title title">Books</h1>
+            <search></search>
+        </div>
+        <div class="table-elem" ng-if="tablevm.books">
+            <table>
+                <tr class="head">
+                    <td ng-click="tablevm.getPage(tablevm.brif, true, 'createdOn')">№</td>
+                    <td ng-click="tablevm.getPage(tablevm.brif, true, 'name')">Author</td>
+                    <td ng-click="tablevm.getPage(tablevm.brif, true, 'title')">Title</td>
+                    <td ng-click="tablevm.getPage(tablevm.brif, true, 'rating')">Book Rating</td>
+                    <td ng-click="tablevm.getPage(tablevm.brif, true, 'status')">Status</td>
+                    <td>Action</td>
+                </tr>
+                <tr ng-init="num = tablevm.page*tablevm.row" ng-repeat="book in tablevm.books" ng-click="tablevm.getBook(book._id)">
+                    <td ng-if="!tablevm.sortReverse">{{($index - tablevm.row + 1) + num}}</td>
+                    <td ng-if="tablevm.sortReverse">{{-$index + num}}</td>
+                    <td>{{book.name}}</td>
+                    <td>{{book.title }}</td>
+                    <td>
+                        <rating item="book" ctrl="tablevm"></rating>
+                    </td>
+                    <td><status value-status="{{[book.status, $index, book._id]}}"></status></td>
+                    <td>
+                        <a href="/#!/edit/{{book._id}}" class="btn edit">Edit</a>
+                        <button ng-click="tablevm.delete(book)" class="btn del">Delete</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div ng-if="!tablevm.books" align="center"><img src="/images/loader.gif" alt=""></div>
+        <pgnt content="tablevm"></pgnt>
+    </div>
+</div>
+<book ng-if="tablevm" content="tablevm"></book>

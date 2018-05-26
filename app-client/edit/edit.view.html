@@ -1,0 +1,31 @@
+<div ng-controller="editCtrl">
+    <head-d></head-d>
+    <popup ng-click="vm.gobeak()"></popup>
+    <div class="fluid editfile">
+        <div class="container"  ng-repeat="book in vm.books | filter:vm.id">
+            <h1 class="title">Edit {{vm.id}}</h1>
+            <form ng-submit="vm.edit(book)">
+
+                <label for="fileR" class="link">Replace file</label>
+                <input type="file" id="fileR" style="display: none" on-read-file="vm.showContent($fileContent, $file)">
+                <object width="316" height="500" type="application/pdf" data="{{book.src}}">
+                    <p>Insert your error message here, if the PDF cannot be displayed.</p>
+                </object>
+
+                <input type="text" placeholder="{{book.name}}" ng-model="book.name">
+                <input type="text" placeholder="{{book.title}}" ng-model="book.title">
+                <textarea ng-model="book.des">{{book.des}}</textarea>
+                <select ng-model="book.status">
+                    <option value="on" selected ng-if="book.status == 'on'">on</option>
+                    <option value="off" selected ng-if="book.status == 'off'">off</option>
+                    <option value="on" ng-if="book.status != 'on'">on</option>
+                    <option value="off" ng-if="book.status != 'off'">off</option>
+                </select>
+                <div class="buttons">
+                    <button class="btn" type="button" ng-click="vm.gobeak()">Cancel</button>
+                    <button class="btn" type="submit">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

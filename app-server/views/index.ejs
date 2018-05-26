@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="books">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title><%= title%></title>
+</head>
+<body ng-view>
+<!-- IE required polyfills, in this exact order -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
+<script src="https://unpkg.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+<!--END-->
+
+<script src='../lib/angular.min.js'></script>
+<script src="../lib/angular-resource.min.js"></script>
+<script src='../lib/angular-route.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../app.module.js'></script>
+<script src='../app.config.js'></script>
+
+<script src='../Core/core.module.js'></script>
+<script src='../Core/core.service.js'></script>
+
+<script src='../nav/nav.controller.js'></script>
+<script src='../nav/nav.directive.js'></script>
+<script src='../head/head.module.js'></script>
+<script src='../head/head.component.js'></script>
+<script src='../search/search.component.js'></script>
+<script src='../status/status.component.js'></script>
+<script src='../table/table.component.js'></script>
+<script src='../directive/book/book.directive.js'></script>
+<script src='../popup/popup.module.js'></script>
+<script src='../popup/popup.component.js'></script>
+
+<script src='../directive/pagination/pgnt.directive.js'></script>
+<script src='../directive/rating/rating.directive.js'></script>
+
+<script src='../home/home.controller.js'></script>
+<script src='../auth/SignIn/in.module.js'></script>
+<script src='../auth/SignIn/in.component.js'></script>
+<script src='../auth/SignUp/up.module.js'></script>
+<script src='../auth/SignUp/up.component.js'></script>
+<script src='../books/books.controller.js'></script>
+<script src='../add/add.module.js'></script>
+<script src='../add/add.service.js'></script>
+<script src='../add/add.component.js'></script>
+<script src='../edit/edit.controller.js'></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<div class="sctn auth" ng-controller="inCtrl">
+	<div class="auth-form">
+		<h1 class="title">{{vm.auth.btn.sgnin}}</h1>
+		<form ng-submit="vm.signin()">
+			<div>
+				<label for="login">{{vm.auth.label.email}}</label>
+				<input type="email" id="login" class="f-in-login" placeholder="{{vm.auth.placeholder.email}}" ng-model="vm.login" ng-change="vm.mf.defoult('.f-in-login')">
+			</div>
+			<div>
+				<label for="pass">{{vm.auth.label.pass}}</label>
+				<input type="password" id="pass" class="f-in-pass" placeholder="{{vm.auth.placeholder.pass}}" ng-model="vm.pass" ng-change="vm.mf.defoult('.f-in-pass')">
+			</div>
+			<div>
+				<a href="#!/registr" class="link">{{vm.auth.btn.sgnup}}</a>
+				<button type="submit" class="btn">{{vm.auth.btn.sgnin}}</button>
+			</div>
+		</form>
+	</div>
+</div>

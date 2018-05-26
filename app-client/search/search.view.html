@@ -1,0 +1,5 @@
+<form ng-submit="srch.search()">
+    <input type="text" class="table-search f-search" ng-change="srch.mf.defoult('.f-search')" placeholder="Search"  ng-model="srch.query">
+    <button class="table-find btn f-search" type="submit"><i class="fas fa-search"></i></button>
+    <button class="table-clear btn" type="button" ng-click="srch.clearSearch()"><i class="fas fa-times"></i></button>
+</form>

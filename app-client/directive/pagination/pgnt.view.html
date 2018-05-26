@@ -1,0 +1,25 @@
+<div ng-if="pgntvm.frst && pgntvm.last">
+    <div class="table-pgntn" ng-if="(pgntvm.page == pgntvm.frst) && (pgntvm.page != pgntvm.last) && (2 != pgntvm.last)">
+        <span  class="table-pgntn-item {{pgntvm.brif == pgntvm.page ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page, true)">{{pgntvm.page}}</span>
+        <span  class="table-pgntn-item {{pgntvm.brif == pgntvm.page+1 ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page+1, true)">{{pgntvm.page+1}}</span>
+        <span  class="table-pgntn-item {{pgntvm.brif == pgntvm.page+2 ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page+2, true)">{{pgntvm.page+2}}</span>
+    </div>
+    <div class="table-pgntn" ng-if="(pgntvm.page != pgntvm.frst) && (pgntvm.page != pgntvm.last) && (2 != pgntvm.last)">
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page-1 ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page-1, true)">{{pgntvm.page-1}}</span>
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page, true)">{{pgntvm.page}}</span>
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page+1  ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page+1, true)">{{pgntvm.page+1}}</span>
+    </div>
+    <div class="table-pgntn" ng-if="(pgntvm.page == pgntvm.last) && (pgntvm.page != pgntvm.frst) && (2 != pgntvm.last)">
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page-2 ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page-2, true)">{{pgntvm.page-2}}</span>
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page-1 ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page-1, true)">{{pgntvm.page-1}}</span>
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page, true)">{{pgntvm.page}}</span>
+    </div>
+    <div class="table-pgntn sm" ng-if="(pgntvm.page == pgntvm.last) && (pgntvm.page != pgntvm.frst) && (2 == pgntvm.last)">
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page-1 ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page-1, true)">{{pgntvm.page-1}}</span>
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page, true)">{{pgntvm.page}}</span>
+    </div>
+    <div class="table-pgntn sm" ng-if="(pgntvm.page != pgntvm.last) && (pgntvm.page == pgntvm.frst) && (2 == pgntvm.last)">
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page, true)">{{pgntvm.page}}</span>
+        <span class="table-pgntn-item {{pgntvm.brif == pgntvm.page+1 ? 'active' : ''}}" ng-click="pgntvm.getPage(pgntvm.page+1, true)">{{pgntvm.page+1}}</span>
+    </div>
+</div>

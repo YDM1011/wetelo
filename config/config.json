@@ -1,0 +1,23 @@
+{
+  "data": {
+    "db": "mongodb://ydm1011:adn45hrf@ds131800.mlab.com:31800/books",
+    "port": "80",
+    "email": {
+      "host": "smtp.mail.yahoo.com",
+      "port": 465,
+      "secure": true,
+      "user": "ydm101194@yahoo.com",
+      "pass": "adn45hrf",
+      "message": "Hello from Talants",
+      "link1": "http://localhost:80",
+      "link2": "/confirmMail/",
+      "link3": "/forgotMail/",
+      "link4": "/emailChangeConfirm/",
+      "subject": "Test"
+    },
+    "auth": {
+      "successRedirect": "/",
+      "failureRedirect": "/login"
+    }
+  }
+}

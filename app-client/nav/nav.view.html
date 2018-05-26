@@ -1,0 +1,7 @@
+<nav class="head-menu" ng-controller="navigationCtrl">
+    <ul>
+        <li ng-repeat="item in navvm.nav">
+            <a href="{{item.link}}" class="link {{navvm.curenLink == item.link.split('/')[1] ? 'active' : ''}}">{{item.name}}</a>
+        </li>
+    </ul>
+</nav>

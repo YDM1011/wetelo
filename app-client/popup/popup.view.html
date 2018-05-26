@@ -1,0 +1,53 @@
+<style>
+    #popup{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 100;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    .mes{
+        padding: 10px 10px 13px 10px;
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+    }
+    .pop{
+        position: relative;
+    }
+    .err{
+        background-color: #f33;
+        color: #fff;
+    }
+    .war{
+        background-color: #ff3;
+        color: #000;
+    }
+    .scs{
+        background-color: #3f3;
+        color: #000;
+    }
+    .close{
+        border-radius: 50%;
+        line-height: 30px;
+        width: 30px;
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        padding: 0;
+        background: #fff;
+        color: #000;
+
+    }
+</style>
+<div id="popup" ng-click="$ctrl.close()">
+    <div class="pop">
+        <button class="btn close" type="button" ng-click="$ctrl.close()"><i class="fas fa-times"></i></button>
+        <div class="mes"></div>
+    </div>
+</div>

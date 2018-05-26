@@ -1,0 +1,23 @@
+<div class="fluid book">
+    <div class="container" ng-repeat="book in bookvm.books | filter:bookvm.id">
+        <div class="book-prev">
+            <div ng-if="book.src">
+                <object><embed src="{{book.src}}" type='application/pdf'> </object>
+            </div>
+        </div>
+        <div class="book-info">
+            <h1 class="title">{{book.name}}</h1>
+            <div class="book-info-rating">
+                <rating item="book" ctrl="bookvm"></rating>
+            </div>
+            <div class="book-info-timeset">{{book.createdOn | date : 'd MMM, yyyy'}}</div>
+            <div class="book-info-des">
+                {{book.des}}
+            </div>
+            <div>
+                <!--<a href="./{{book.src}}" target="_blank" class="btn">download</a>-->
+                <button class="btn" ng-click="bookvm.download(book)">download</button>
+            </div>
+        </div>
+    </div>
+</div>

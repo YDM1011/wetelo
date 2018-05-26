@@ -1,0 +1,31 @@
+<div>
+    <head-d></head-d>
+    <popup ng-click="vm.gobeak()"></popup>
+    <div class="fluid add">
+        <div class="container">
+            <h1 class="title">Add</h1>
+            <form ng-submit="vm.addBook()">
+
+                <label for="file" class="flabelFile link">Select file upload</label>
+                <input type="file" id="file" style="display: none" on-read-file="vm.showContent($fileContent, $file)">
+                <div ng-if="vm.src">
+                    <object width="316" height="500" type="application/pdf" data="{{vm.src}}">
+                        <p>Insert your error message here, if the PDF cannot be displayed.</p>
+                    </object>
+                </div>
+
+                <input type="text" placeholder="Autor" ng-change="vm.mf.defoult('.fautor')" class="fautor" ng-model="vm.autor">
+                <input type="text" placeholder="Title" ng-change="vm.mf.defoult('.ftitle')" class="ftitle" ng-model="vm.title">
+                <textarea ng-model="vm.des" ng-change="vm.mf.defoult('.fdes')" class="fdes">Description</textarea>
+                <select ng-model="vm.status" class="fstatus">
+                    <option value="on">on</option>
+                    <option value="off">off</option>
+                </select>
+                <div class="buttons">
+                    <button class="btn" ng-click="vm.gobeak()">Cancel</button>
+                    <button class="btn" type="submit">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
