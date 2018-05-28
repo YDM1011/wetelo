@@ -25,7 +25,6 @@ status
                     $('.statusCheck')[item[1]].classList.add('on');
                 }
                 element.on('click', (e)=>{
-                    console.log(e.target.innerText);
                     const elem = e.target;
                     const as = e.target.innerText;
                     if(as == 'on'){

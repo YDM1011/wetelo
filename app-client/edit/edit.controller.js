@@ -32,7 +32,6 @@ function editCtrl(Data, $routeParams, $location, $window, pop) {
     vm.id = $routeParams.id;
     vm.books = Data.books;
     vm.id == 'search' ? $location.path('/books') : $window.id = vm.id;
-console.log(vm.file);
     vm.showContent = (fileContent, file) => {
         if (file.type == 'application/pdf'){
             vm.src = fileContent;
@@ -46,10 +45,6 @@ console.log(vm.file);
     };
 
     vm.edit = (book) =>{
-        // console.log(vm.file);
-        // Data.books = vm.books;
-        // $window.history.back();
-
         if(!vm.file){
             const mes = {
                 "src": book.src,
@@ -61,7 +56,6 @@ console.log(vm.file);
             };
 
             Data.editB.edit(mes).$promise.then(res=>{
-                console.log(`edit ${res}`);
                 pop.popup('book was success edit', 'scs');
             });
         }else{
@@ -82,7 +76,6 @@ console.log(vm.file);
             processData: false,
             type: 'POST',
             success: function (response) {
-                console.log(response);
                 let mes = {
                     "src": response.src,
                     "name": book.name,
@@ -90,9 +83,7 @@ console.log(vm.file);
                     "des": book.des,
                     "status": book.status,
                     "id": vm.id};
-                console.log(mes);
                 Data.editB.edit(mes).$promise.then(res=>{
-                    console.log(`edit ${res}`);
                     pop.popup('book was success edit', 'scs');
                 });
             }

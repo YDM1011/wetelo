@@ -74,7 +74,6 @@ angular
                    ) &&
                    !mf.getToken()
                ){
-                   console.log($location)
                    $location.path('/login')
                }
            }
@@ -90,11 +89,9 @@ function mainfunk( $window, $location) {
         $window.localStorage['token'] = 'qweasdaszxc';
     };
     m.getToken = () => {
-        console.log($window.localStorage['token']);
         return $window.localStorage['token'];
     };
     m.getName = () => {
-        console.log($window.localStorage['name']);
         return $window.localStorage['name'];
     };
     m.setToken = (token) => {

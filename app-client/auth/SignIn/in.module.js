@@ -1,2 +1,2 @@
 'use strict';
-angular.module('signIn', [])
+angular.module('signIn', ['ngRoute', 'popup']);

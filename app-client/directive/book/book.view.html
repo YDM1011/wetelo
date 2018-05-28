@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="book-info">
-            <h1 class="title">{{book.name}}</h1>
+            <h1 class="title">{{book.title}}</h1>
             <div class="book-info-rating">
                 <rating item="book" ctrl="bookvm"></rating>
             </div>
@@ -15,8 +15,7 @@
                 {{book.des}}
             </div>
             <div>
-                <!--<a href="./{{book.src}}" target="_blank" class="btn">download</a>-->
-                <button class="btn" ng-click="bookvm.download(book)">download</button>
+                <a href="./{{book.src}}" download="{{book.title}}" target="_blank" class="btn">download</a>
             </div>
         </div>
     </div>

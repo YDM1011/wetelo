@@ -23,21 +23,17 @@ module.exports = (req,res)=>{
                     return;
                 }
                 /* find book for search */
-                Book.find({userId: user._id})
-                    .where('title').equals(search.search)
-                    .exec((err, book) => {
-                        if (!book) {
-                            send(res, 404, {
-                                "message": "Book not found"
-                            });
-                            return;
-                        } else if (err) {
-                            send(res, 404, err);
-                            return;
-                        }
-                        send(res, 200, book);
+                const qs = String(search.search);
+                const query   = {$and: [{userId: user._id}, {$or: [{title: qs},{name: qs}]} ]};
+                const options = {
+                    populate: 'book',
+                    lean:     true,
+                    limit:    3
+                };
+                Book.paginate(query, options).then(function(result) {
+                    send(res, 200, result)
+                });
 
-                    });
                 /* end */
             });
     }

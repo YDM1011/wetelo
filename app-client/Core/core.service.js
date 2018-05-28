@@ -6,15 +6,32 @@ angular
 function Data($resource) {
 
     return {
-        page: $resource('books/:brif/:token/:sort/:vector',{brif: 1, token: '@id', sort: 'createdOn', vector: -1}),
-        books:'',
+        page: $resource('/getbooks', {}, {
+            save:{
+                method: 'POST',
+                interceptor: {
+                    request: function(config) {
+                        config.requestTimestamp = Date.now();
+                        return config;
+                    },
+                    response: function(response) {
+                        const instance = response.resource;
+                        instance.saveLatency = Date.now() - response.config.requestTimestamp;
+                        return instance;
+                    }
+                }
+            }
+        }),
+        books: '',
         sort: 'createdOn',
         vector: '1',
-        last: $resource('/allPage/:token', {token: '@id'}),
+        last: '1',
+        total: '0',
         nav: {
             user: $resource('/userEmail/:token', {token: '@id'})
         },
         delete: $resource('/delete/:id', {id: '@id'}),
+        srch: '',
         editB: $resource('/edit', {},  {
             edit: {
                 method: 'POST',
@@ -34,7 +51,6 @@ function Data($resource) {
         search: $resource('/search', {},  {
             book: {
                 method: 'POST',
-                isArray: true,
                 interceptor: {
                     request: function(config) {
                         config.requestTimestamp = Date.now();

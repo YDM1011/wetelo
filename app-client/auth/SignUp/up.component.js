@@ -6,9 +6,9 @@ angular
         templateUrl: '/auth/SignIn/in.view.html',
         controller: upCtrl
     })
-    .controller('upCtrl', ['mf', 'addContent', '$location', upCtrl])
+    .controller('upCtrl', ['mf', 'addContent', '$location', 'pop', upCtrl])
 
-function upCtrl(mf, addContent, $location) {
+function upCtrl(mf, addContent, $location, pop) {
     const vm = this;
     vm.mf = mf;
     vm.email = '';
@@ -27,9 +27,11 @@ function upCtrl(mf, addContent, $location) {
         const mes = {
             "email": vm.email,
             "password": vm.pass};
-
-        console.log(mes);
         addContent.signup.save(mes).$promise.then(res=>{
+            if (res.message){
+                pop.popup(res.message, 'err');
+                return
+            }
             if (res.token){
                 mf.setToken(res.token);
                 mf.setName(res.email);

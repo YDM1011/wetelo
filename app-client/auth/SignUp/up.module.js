@@ -1,2 +1,2 @@
 'use strict';
-angular.module('signUp', ['ngRoute'])
+angular.module('signUp', ['ngRoute', 'popup'])

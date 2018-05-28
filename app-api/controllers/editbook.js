@@ -12,7 +12,6 @@ function send(res, status, mes){
 
 module.exports = (req,res)=>{
     const bookEdit = req.body;
-    console.log(bookEdit)
     if(bookEdit && bookEdit.id) {
         Book.findById(bookEdit.id)
             .exec((err, book) => {
@@ -28,8 +27,8 @@ module.exports = (req,res)=>{
                 /* edit book with token wich was find */
                 if (book) {
                     book.src = bookEdit.src;
-                    book.name = bookEdit.name;
-                    book.title = bookEdit.title;
+                    book.name = bookEdit.name.toLowerCase();
+                    book.title = bookEdit.title.toLowerCase();
                     book.des = bookEdit.des;
                     book.status = bookEdit.status;
 

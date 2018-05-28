@@ -13,10 +13,15 @@ function send(res, status, mes){
 }
 
 module.exports = (req,res)=>{
-    const page = req.params.brif;
-    const token = req.params.token;
-    const sort = req.params.sort;
-    const vector = req.params.vector;
+    const attr = req.body;
+    const page = attr.brif;
+    const token = attr.token;
+    const sort = attr.sort;
+    const vector = attr.vector;
+    var qs = false;
+    try{
+        qs = attr.search.toLowerCase();
+    }catch(err){}
     User
         .findOne({token: token})
         .exec((err, user) => {
@@ -24,9 +29,15 @@ module.exports = (req,res)=>{
                 send(res, 404, {"message": "token invalid"});
                 return
             }
-            const query   = {userId: user._id};
+            var query = {};
+            if(qs){
+                query   = {$and: [{userId: user._id}, {$or: [{title: qs},{name: qs}]} ]};
+            }else{
+                query   = {userId: user._id};
+            }
+
             var s = {};
-            s[sort] = vector
+            s[sort] = vector;
             const options = {
                 sort: s,
                 populate: 'book',
@@ -34,7 +45,6 @@ module.exports = (req,res)=>{
                 page:   page,
                 limit:    3
             };
-console.log(options);
             Book.paginate(query, options).then(function(result) {
                 send(res, 200, result)
             });

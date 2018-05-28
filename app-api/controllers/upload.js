@@ -27,7 +27,6 @@ module.exports.uploadFile = (req,res)=>{
     form.on('error', function(err){
         if(fs.existsSync(uploadFile.path)) {
             fs.unlinkSync(uploadFile.path);
-            console.log('error');
         }
     });
 
@@ -44,12 +43,10 @@ module.exports.uploadFile = (req,res)=>{
     });
 
     form.on('part', function(part) {
-        console.log(part);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
         uploadFile.link = `./app-client/files/${md5(part.filename)}.pdf`;
         uploadFile.linkConnect = `files/${md5(part.filename)}.pdf?#scrollbar=0&toolbar=0&navpanes=0`;
-        console.log(`${uploadFile.link}`);
         uploadFile.path = uploadFile.link;
 
         if(uploadFile.size > maxSize) {

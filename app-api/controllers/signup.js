@@ -13,12 +13,11 @@ function send(res, status, mes){
 
 module.exports = (req,res)=>{
     const signup = req.body;
-    console.log(signup);
-    if(signup && signup.email && signup.password) {
+    if(signup && signup.email && signup.password && (signup.password.length>=3 && signup.password.length<=16)) {
         User.findOne({email: signup.email})
             .exec(function (err, contentUser) {
                 if (contentUser) {
-                    send(res, 404, {
+                    send(res, 200, {
                         "message": "email in use"
                     });
                     return
@@ -48,9 +47,20 @@ module.exports = (req,res)=>{
             });
     }
     else {
-        send(res, 404, {
+        if(signup.password.length<3){
+            send(res, 200, {
+                "message": "Password is very short"
+            });
+            return
+        }
+        if(signup.password.length>16){
+            send(res, 200, {
+                "message": "Password is very long"
+            });
+            return
+        }
+        send(res, 200, {
             "message": "No email or password"
         });
     }
-
 };

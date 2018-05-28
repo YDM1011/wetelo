@@ -27,8 +27,8 @@ module.exports = (req,res)=>{
                 /* create book for user with token wich was find */
                 Book.create({
                     src: book.src,
-                    name: book.name,
-                    title: book.title,
+                    name: book.name.toLowerCase(),
+                    title: book.title.toLowerCase(),
                     des: book.des,
                     status: book.status,
                     userId: contentUser._id

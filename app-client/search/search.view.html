@@ -3,3 +3,4 @@
     <button class="table-find btn f-search" type="submit"><i class="fas fa-search"></i></button>
     <button class="table-clear btn" type="button" ng-click="srch.clearSearch()"><i class="fas fa-times"></i></button>
 </form>
+<div ng-if="srch.is" style="margin: 10px"><button class="btn" ng-click="srch.delFilter()">{{srch.is}}  <i class="fas fa-times"></i></button></div>

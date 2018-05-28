@@ -13,7 +13,6 @@ angular
             scope: false,
             link: function(scope, element, attrs) {
                 var fn = $parse(attrs.onReadFile);
-                console.log(attrs.onReadFile);
                 element.on('change', function(onChangeEvent) {
                     var reader = new FileReader();
 
@@ -47,7 +46,6 @@ function addCtrl(addContent, mf, pop, $window) {
     };
 
     vm.gobeak = () =>{
-        console.log('beak');
         $window.history.back()
     };
     vm.addBook = () => {
@@ -73,7 +71,6 @@ function addCtrl(addContent, mf, pop, $window) {
             processData: false,
             type: 'POST',
             success: function (response) {
-                console.log(response)
                 const mes = {
                     "src": response.src,
                     "name": vm.autor,
@@ -82,7 +79,6 @@ function addCtrl(addContent, mf, pop, $window) {
                     "status": vm.status,
                     "token": vm.token};
                 addContent.send.save(mes).$promise.then(res=>{
-                    console.log(`added ${res}`);
                     pop.popup('book was success added', 'scs');
                 });
             }
