@@ -1,6 +1,6 @@
-do by step:
+#do by step:
 
-$ git clone https://github.com/YDM1011/wetelo.git
-$ cd wetelo
-$ npm i
-$ npm start
+### git clone https://github.com/YDM1011/wetelo.git 
+### cd wetelo 
+### npm i
+### npm start
